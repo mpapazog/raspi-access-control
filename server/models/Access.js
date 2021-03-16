@@ -71,8 +71,21 @@ class AccessClass {
         
         if (Config.appServer.enableCallback) {
             try {
-                const response = await this.appServer.get();
-                result = response.data;
+                var response = null; 
+                switch(Config.appServer.triggerMethod.toLowerCase()) {
+                    case 'get':
+                        response = await this.appServer.get();
+                        break;
+                    case 'put':
+                        response = await this.appServer.put();
+                        break;
+                    case 'post':
+                        response = await this.appServer.post();
+                        break;    
+                }
+                if (typeof response != "undefined") {
+                    result = response.data;                    
+                }
             } catch (error) {
                 console.error(error);
             }
