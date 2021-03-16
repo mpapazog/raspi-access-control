@@ -1,16 +1,19 @@
 # !!! APPLYING CONFIG CHANGES REQUIRES A SERVER RESTART !!!
 
 raspi:
-    requireAuthentication: false
     enableCallback: false
     triggerUrl: http://127.0.0.1:5000/trigger
+    
+    requireAuthentication: false
     username: raspi
     password: raspiRules
     
-appServer:
-    enableCallback: false
+appServer:    
+    enableCallback: true
+    triggerMethod: POST
     triggerUrl: http://127.0.0.1:5000/trigger
     requestTimeout: 30
+    
     requireAuthentication: false
     username: server
     password: ServerRules
