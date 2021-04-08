@@ -12,7 +12,7 @@ appServer:
     enableCallback: true
     triggerMethod: POST
     triggerUrl: http://127.0.0.1:5000/trigger
-    requestTimeout: 30
+    requestTimeout: 30000 #milliseconds
     
     requireAuthentication: false
     username: server
